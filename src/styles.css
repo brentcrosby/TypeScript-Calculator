@@ -1,22 +1,46 @@
+@font-face {
+  font-family: 'Digital Display'; /* Replace with your font's name */
+  src: url('./assets/fonts/digital_display.woff2') format('woff2'),
+       url('./assets/fonts/digital_display.woff') format('woff'),
+       url('./assets/fonts/digital_display.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   background-color: rgba(0, 0, 15, .85);
   padding: 0;
   margin: 0;
 }
 
+.calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .calculator-grid {
   display: grid;
-  justify-content: center;
-  align-content: center;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(6, 60px);
-  min-height: 100vh;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 60px);
+  background-color: rgba(222, 203, 153, 0.793);
+  padding: 10px;
 }
 
 .output {
   grid-column: 1/-1;
-  background-color: rgba(88, 92, 79, 0.467);
+  background-color: rgb(118, 122, 107);
   margin: 5px;
+  font-family: 'Digital Display';
+  font-size: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0px 10px;
+  overflow: hidden;
 }
 
 .calculator-grid > button {
@@ -29,6 +53,7 @@ body {
   margin: 5px;
   font-family: 'Jura', sans-serif ;
   font-weight: 700;
+  border-radius: 10%;
 }
 
 .calculator-grid > button:hover {
