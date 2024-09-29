@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TypeScript Calculator</title>
   <link href="./styles.css" rel="stylesheet">
-  <script src="script.js" defer></script>
+  <script src="./script.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -13,25 +13,25 @@
 <body>
   <div class="calculator-container">
     <div class="calculator-grid">
-      <div class="output">123+456</div>
-      <button class="all-clear span-two special">AC</button>
-      <button class="delete special">del</button>
-      <button class="operator">×</button>
-      <button class="number">1</button>
-      <button class="number">2</button>
-      <button class="number">3</button>
-      <button class="operator">÷</button>
-      <button class="number">4</button>
-      <button class="number">5</button>
-      <button class="number">6</button>
-      <button class="operator">+</button>
-      <button class="number">7</button>
-      <button class="number">8</button>
-      <button class="number">9</button>
-      <button class="operator">-</button>
-      <button class="number">.</button>
-      <button class="number">0</button>
-      <button class="equals span-two special">=</button>
+      <div data-output class="output"></div>
+      <button data-all-clear class="all-clear span-two special">AC</button>
+      <button data-delete class="delete special">del</button>
+      <button data-operator class="operator">×</button>
+      <button data-number class="number">1</button>
+      <button data-number class="number">2</button>
+      <button data-number class="number">3</button>
+      <button data-operator class="operator">÷</button>
+      <button data-number class="number">4</button>
+      <button data-number class="number">5</button>
+      <button data-number class="number">6</button>
+      <button data-operator="" class="operator">+</button>
+      <button data-number class="number">7</button>
+      <button data-number class="number">8</button>
+      <button data-number class="number">9</button>
+      <button data-operator class="operator">-</button>
+      <button data-number class="number">.</button>
+      <button data-number class="number">0</button>
+      <button data-equals class="equals span-two special">=</button>
     </div>
   </div>
 </body>
