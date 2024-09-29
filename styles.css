@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Digital Display'; /* Replace with your font's name */
+  src: url('./assets/fonts/digital_display.woff2') format('woff2'),
+       url('./assets/fonts/digital_display.woff') format('woff'),
+       url('./assets/fonts/digital_display.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  background-color: rgba(0, 0, 0,);
+  padding: 0;
+  margin: 0;
+}
+
+.calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 60px);
+  background-color: rgba(222, 203, 153, 0.992);
+  padding: 10px;
+}
+
+.output {
+  grid-column: 1/-1;
+  background-color: rgb(118, 122, 107);
+  /* background: linear-gradient(to right, rgb(135, 140, 123), rgb(118, 122, 107)); */
+  margin: 5px;
+  font-family: 'Digital Display';
+  font-size: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0px 10px;
+  overflow: hidden;
+  border-radius: 3%;
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.809);
+  color: rgb(255, 255, 255, .85);
+  outline: none;
+  border: none;
+  margin: 5px;
+  font-family: 'Jura', sans-serif ;
+  font-weight: 700;
+  border-radius: 5%;
+}
+
+.calculator-grid > button:hover {
+  background-color: rgba(154, 154, 154);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.calculator-grid > .operator {
+  background-color: rgb(113, 122, 112);
+}
+
+.calculator-grid > .special {
+  background-color: rgb(72, 121, 66);
+}
