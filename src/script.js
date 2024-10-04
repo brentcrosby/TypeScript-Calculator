@@ -3,6 +3,7 @@ class Calculator {
     constructor(outputDisplay) {
         this.currentOperand = '';
         this.previousOperand = '';
+        this.answer = '';
         this.displayText = outputDisplay;
     }
     clear() {
@@ -11,6 +12,9 @@ class Calculator {
         this.operation = undefined;
     }
     appendNumber(num) {
+        if (this.previousOperand !== '' && this.operation == undefined) {
+            this.previousOperand = '';
+        }
         if (num === '.') {
             if (this.currentOperand.includes('.')) { // Catch if a decimal is already there
                 return;
@@ -19,14 +23,22 @@ class Calculator {
         this.currentOperand += num;
     }
     updateDisplay() {
-        this.displayText.innerText = this.currentOperand;
+        if (this.answer) {
+            this.displayText.innerText = this.answer;
+            this.answer = undefined;
+        }
+        else {
+            this.displayText.innerText = this.currentOperand;
+        }
     }
     delete() {
         this.currentOperand = this.currentOperand.slice(0, -1);
     }
     setOperation(operator) {
         this.operation = operator;
-        this.previousOperand = this.currentOperand;
+        if (this.previousOperand === '') {
+            this.previousOperand = this.currentOperand;
+        }
         this.currentOperand = '';
     }
     calculate() {
@@ -49,8 +61,9 @@ class Calculator {
             default:
                 return;
         }
-        this.currentOperand = calculation.toLocaleString();
-        this.previousOperand = '';
+        this.answer = calculation.toLocaleString();
+        this.previousOperand = this.answer;
+        this.currentOperand = '';
         this.operation = undefined;
     }
 }

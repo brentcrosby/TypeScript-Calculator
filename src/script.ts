@@ -5,6 +5,7 @@ class Calculator {
   private previousOperand : string = '';
   private operation : string | undefined;
   private displayText : HTMLElement;
+  private answer : string | undefined = '';
 
   constructor(outputDisplay : HTMLElement) {
     this.displayText! = outputDisplay;
@@ -17,6 +18,9 @@ class Calculator {
   }
 
   appendNumber(num: string): void {
+    if (this.previousOperand !== '' && this.operation == undefined) {
+      this.previousOperand = '';
+    }
     if (num === '.') {
       if (this.currentOperand.includes('.')) {  // Catch if a decimal is already there
         return;
@@ -26,7 +30,12 @@ class Calculator {
   }
 
   updateDisplay(): void {
-    this.displayText.innerText = this.currentOperand;
+    if (this.answer) {
+      this.displayText.innerText = this.answer;
+      this.answer = undefined;
+    } else {
+      this.displayText.innerText = this.currentOperand;
+    }
   }
 
   delete(): void {
@@ -35,7 +44,9 @@ class Calculator {
 
   setOperation(operator: string): void {
     this.operation = operator;
-    this.previousOperand = this.currentOperand;
+    if (this.previousOperand === '') {
+      this.previousOperand = this.currentOperand;
+    }
     this.currentOperand = '';
   }
 
@@ -61,10 +72,10 @@ class Calculator {
         return;
     }
 
-    this.currentOperand = calculation.toLocaleString();
-    this.previousOperand = '';
+    this.answer = calculation.toLocaleString();
+    this.previousOperand = this.answer;
+    this.currentOperand = '';
     this.operation = undefined;
-
   }
 
 }
