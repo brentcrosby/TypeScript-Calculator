@@ -39,12 +39,15 @@ class Calculator {
         if (this.previousOperand === '') {
             this.previousOperand = this.currentOperand;
         }
+        console.log(`prev from operation: ${this.previousOperand}\n`);
         this.currentOperand = '';
     }
     calculate() {
         let calculation;
         const prev = parseFloat(this.previousOperand);
+        console.log(`prev from parse: ${prev}\n`);
         const curr = parseFloat(this.currentOperand);
+        console.log(`curr from parse: ${curr}\n`);
         switch (this.operation) {
             case '×':
                 calculation = prev * curr;
@@ -61,10 +64,16 @@ class Calculator {
             default:
                 return;
         }
-        this.answer = calculation.toLocaleString();
-        this.previousOperand = this.answer;
+        this.previousOperand = calculation.toString();
+        console.log(`prev from calc: ${this.previousOperand}\n`);
         this.currentOperand = '';
         this.operation = undefined;
+        if (calculation > 99999999999) {
+            this.answer = calculation.toExponential(2);
+        }
+        else {
+            this.answer = calculation.toLocaleString();
+        }
     }
 }
 const numberButtons = document.querySelectorAll('[data-number]');
