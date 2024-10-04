@@ -38,11 +38,13 @@ body {
   font-family: 'Digital Display';
   font-size: 4.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-end;
   justify-content: flex-end;
   padding: 0px 10px;
-  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
   border-radius: 3%;
 }
 
@@ -58,6 +60,7 @@ body {
   font-family: 'Jura', sans-serif ;
   font-weight: 700;
   border-radius: 5%;
+  touch-action: manipulation;
 }
 
 .calculator-grid > button:hover {
